@@ -1,0 +1,36 @@
+#!/bin/sh
+ 
+if [[ -f "/opt/app/shared/apli/configuration.conf" ]]; then
+  source "/opt/app/shared/apli/configuration.conf"
+fi
+ 
+if [[ -f "/opt/app/shared/apli/confidential-configuration.conf" ]]; then
+  source "/opt/app/shared/apli/confidential-configuration.conf"
+fi
+ 
+if [[ -f "/opt/app/shared/apli/configuration-dev.conf" ]]; then
+  source "/opt/app/shared/apli/configuration-dev.conf"
+fi
+ 
+if [[ -f "/opt/app/shared/apli/configuration-lab.conf" ]]; then
+  source "/opt/app/shared/apli/configuration-lab.conf"
+fi
+ 
+if [[ -f "/opt/app/shared/apli/configuration-prod.conf" ]]; then
+  source "/opt/app/shared/apli/configuration-prod.conf"
+fi
+ 
+BOOTSTRAP_CLASS="$PROGRAM"
+
+  exec \
+  "$JAVA_HOME/bin/java" \
+    -server \
+    -cp "/opt/app/aplicaciones/apli/$APP_NAME.jar" \
+    -Djavax.net.ssl.trustStore=/etc/pki/java/cacerts \
+    -Xms${JVM_HEAPSIZE}m \
+    -Xmx${JVM_HEAPSIZE}m \
+    -DPort=APP_PORT \
+    $JAVA_PARAMS \
+    "$BOOTSTRAP_CLASS"
+fi
+ 
