@@ -13,7 +13,7 @@ RUN mkdir -p /opt/app/run/apli/ && \
 	mkdir -p /opt/app/shared/apli/ && \ 
     #chown -R root:daemon /opt/app/ 
 	
-COPY apli/jvm-exec-wrapper /opt/app/aplicaciones/apli/
+COPY apli/jvm-exec-wrapper /opt/app/aplicaciones/apli
 COPY apli/shared/ /opt/app/shared/apli/
 
 COPY apli-0.0.1-SNAPSHOT.jar /opt/app/aplicaciones/apli/apli-0.0.1-SNAPSHOT.jar
