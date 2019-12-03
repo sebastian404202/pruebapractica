@@ -2,15 +2,15 @@ FROM openjdk:8-jre-slim
 
 ENV APP_NAME="apli-0.0.1-SNAPSHOT" \
     APP_TYPE="jvm" \
-    APP_PORT="9406" 
+    APP_PORT="9406"
+	
 
 LABEL docker.version="1.0" 
 
 EXPOSE 9406
  
-RUN mkdir -p /opt/app/run/apli/ && \ 
-	mkdir -p /opt/app/aplicaciones/apli && \ 
-	mkdir -p /opt/app/shared/apli/
+RUN mkdir -p /opt/app/aplicaciones/apli && \ 
+	mkdir -p /opt/app/shared/apli
     #chown -R root:daemon /opt/app/ 
 	
 COPY apli/jvm-exec-wrapper /opt/app/aplicaciones/apli/

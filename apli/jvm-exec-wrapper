@@ -27,8 +27,6 @@ BOOTSTRAP_CLASS="$PROGRAM"
     -server \
     -cp "/opt/app/aplicaciones/apli/$APP_NAME.jar" \
     -Djavax.net.ssl.trustStore=/etc/pki/java/cacerts \
-    -Xms${JVM_HEAPSIZE}m \
-    -Xmx${JVM_HEAPSIZE}m \
     -DPort=APP_PORT \
     $JAVA_PARAMS \
     "$BOOTSTRAP_CLASS"
